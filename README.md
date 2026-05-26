@@ -105,11 +105,18 @@ If you connect this repo to Heroku, use these settings:
 
 ### Render quick deploy
 
-If you connect this repo to Render, use:
+A Render manifest is included at `render.yaml`.
 
-- Environment: `Node`
-- Build command: `npm install`
-- Start command: `npm start`
+To deploy on Render:
+
+1. Create a Render account.
+2. Connect your GitHub repository.
+3. Create a new `Web Service` from `main`.
+4. Use the defaults or these values:
+   - Environment: `Node`
+   - Build command: `npm install`
+   - Start command: `npm start`
+5. Deploy.
 
 ### GitHub Actions deploy to Heroku
 
