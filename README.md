@@ -7,7 +7,8 @@ Users can connect and send messages instantly using WebSockets.
 ## Features
 
 - Real-time messaging
-- Multiple users support
+- Username prompt for each user
+- Responsive chat UI with message bubbles
 - WebSocket communication
 - Frontend + Backend integration
 

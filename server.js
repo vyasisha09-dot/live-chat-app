@@ -11,7 +11,16 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static("public"));
 
 io.on("connection", (socket) => {
-    console.log("User connected");
+    console.log("User connected", socket.id);
+
+    socket.on("chat message", (message) => {
+        if (!message || !message.text) return;
+        io.emit("chat message", message);
+    });
+
+    socket.on("disconnect", () => {
+        console.log("User disconnected", socket.id);
+    });
 });
 
 server.listen(PORT, () => {
