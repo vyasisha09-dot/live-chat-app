@@ -77,3 +77,37 @@ live-chat-app/
 - Add typing indicator
 - Store messages in a database
 - Deploy to cloud
+
+## Deployment
+
+This app is a Node.js server and must be deployed to a Node-capable host.
+
+### Recommended platforms
+
+- Render: https://render.com
+- Railway: https://railway.app
+- Heroku: https://www.heroku.com
+
+### Deploy steps
+
+1. Push the repo to GitHub.
+2. Create a new service on your deployment platform.
+3. Use `npm start` as the start command.
+4. Set the port to the platform-provided `PORT` environment variable (already supported).
+
+### Heroku quick deploy
+
+If you connect this repo to Heroku, use these settings:
+
+- Buildpack: Node.js
+- Start command: `npm start`
+
+### Render quick deploy
+
+If you connect this repo to Render, use:
+
+- Environment: `Node`
+- Build command: `npm install`
+- Start command: `npm start`
+
+The application will serve the frontend from `public/` and use Socket.IO for real-time chat.
