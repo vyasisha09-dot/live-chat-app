@@ -8,21 +8,35 @@
 </head>
 <body>
 
-<div class="chat-container">
-    <header class="chat-header">
-        <div>
-            <h1>Live Chat</h1>
-            <p>Real-time messaging with Socket.IO</p>
+<div class="app-shell">
+    <div class="chat-card">
+        <header class="chat-header">
+            <div class="header-left">
+                <div class="room-icon">💬</div>
+                <div>
+                    <h1>Live Chat</h1>
+                    <p>Real-time messaging powered by Socket.IO</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <span class="status-dot"></span>
+                <span class="status-text">Online</span>
+            </div>
+        </header>
+
+        <div class="chat-window">
+            <div class="message-list" id="messages"></div>
         </div>
-        <div id="user-badge">Connected as <span id="username-label">Guest</span></div>
-    </header>
 
-    <div id="messages" class="messages"></div>
+        <form id="form" class="chat-input-area">
+            <input id="input" autocomplete="off" placeholder="Type a message..." />
+            <button type="submit">Send</button>
+        </form>
 
-    <form id="form" class="input-area">
-        <input id="input" autocomplete="off" placeholder="Type a message..." />
-        <button type="submit">Send</button>
-    </form>
+        <div class="username-note">
+            You are chatting as <strong id="username-label">Guest</strong>
+        </div>
+    </div>
 </div>
 
 <script src="/socket.io/socket.io.js"></script>

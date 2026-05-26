@@ -13,7 +13,7 @@ form.addEventListener("submit", function(e) {
     const text = input.value.trim();
     if (!text) return;
 
-    const message = { user: username, text };
+    const message = { user: username, text, time: getTime() };
     socket.emit("chat message", message);
     input.value = "";
 });
@@ -36,14 +36,24 @@ function addMessage(message, own) {
     const item = document.createElement("div");
     item.className = `message${own ? " own" : ""}`;
 
+    const meta = document.createElement("div");
+    meta.className = "message-meta";
+
     const sender = document.createElement("span");
     sender.className = "sender";
     sender.textContent = own ? "You" : message.user;
 
-    const text = document.createElement("span");
+    const time = document.createElement("span");
+    time.className = "timestamp";
+    time.textContent = message.time || getTime();
+
+    const text = document.createElement("div");
+    text.className = "text";
     text.textContent = message.text;
 
-    item.appendChild(sender);
+    meta.appendChild(sender);
+    meta.appendChild(time);
+    item.appendChild(meta);
     item.appendChild(text);
     messages.appendChild(item);
     messages.scrollTop = messages.scrollHeight;
@@ -55,4 +65,8 @@ function addSystemMessage(text) {
     item.textContent = text;
     messages.appendChild(item);
     messages.scrollTop = messages.scrollHeight;
+}
+
+function getTime() {
+    return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 }
