@@ -110,4 +110,16 @@ If you connect this repo to Render, use:
 - Build command: `npm install`
 - Start command: `npm start`
 
-The application will serve the frontend from `public/` and use Socket.IO for real-time chat.
+### GitHub Actions deploy to Heroku
+
+A GitHub Actions workflow is included at `.github/workflows/deploy.yml`.
+
+To deploy automatically on every push to `main`, add these repository secrets in GitHub:
+
+- `HEROKU_API_KEY`
+- `HEROKU_APP_NAME`
+- `HEROKU_EMAIL`
+
+Then push to `main` and GitHub Actions will deploy the app to Heroku.
+
+The application serves the frontend from `public/` and uses Socket.IO for real-time chat.
